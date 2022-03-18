@@ -1,8 +1,4 @@
-# This script:
-# - Gets the public IP and tag=name for each of your running instances
-# - Adds to or updates /etc/hosts with those entries
-# You'll want to setup boto3 credenitals to get it working: https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html 
-
+# pip3 install python_hosts,boto3
 from python_hosts import Hosts, HostsEntry
 from collections import defaultdict
 import boto3
