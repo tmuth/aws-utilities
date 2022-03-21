@@ -6,7 +6,9 @@ import boto3
 hosts = Hosts(path='/etc/hosts')
 
 def writeEntry(name,ip):
-    new_entry = HostsEntry(entry_type='ipv4', address=ip, names=[name])
+    commentText = "Added automatically from AWS running instance by update-hosts.py"
+
+    new_entry = HostsEntry(entry_type='ipv4', address=ip, names=[name],comment=commentText)
     hosts.add([new_entry],force=True)
     hosts.write()
 
