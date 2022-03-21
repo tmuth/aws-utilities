@@ -34,6 +34,7 @@ def signal_handler(signum, frame):
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
+cls() 
 
 def listInstances(instance_id=None):
     ec2 = boto3.resource('ec2')
@@ -222,6 +223,7 @@ def mainMenu():
         #menu_cursor_style=main_menu_cursor_style,
         #menu_highlight_style=main_menu_style,
         #cycle_cursor=True,
+        shortcut_key_highlight_style=("fg_red", "bold"),
         clear_screen=False,
     )
 
