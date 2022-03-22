@@ -17,3 +17,4 @@ These utilities fall under two major categories:
 2. Install python3 packages via pip3 (will update with list)
 3. The "Update /etc/hosts" functionality uses sudo to run update-hosts.py. To enable this command without requiring a password each time, run the following... (visudo, etc, etc)
 4. Run it via `python3 aws-menu.py`, which also calls update-hosts.py via sudo 
+5.
