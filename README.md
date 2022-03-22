@@ -1,5 +1,11 @@
 # aws-utilities
-
+These utilities fall under two major categories:
+- A lambda function (written in python) that runs in AWS on a nightly basis to shut down all running EC2 instances. This is to save on AWS costs from accidentally leaving an instance running.
+- A python script that runs locally on a laptop to provide a suite of helper utilities to make working with AWS easier (at least for me) including:
+    - View a list of your EC2 instances and their state (running, stopped, etc)
+    - Stop or start any of your EC2 instances
+    - Update your local `/etc/hosts` file with the name and public IP of any running EC2 instances
+    - Update a named security group policy with your current public IP to allow access only your laptop
 
 ## Lambda function setup
 (needs better documentation)
