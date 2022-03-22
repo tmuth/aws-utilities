@@ -8,9 +8,8 @@ These utilities fall under two major categories:
     - Update a named security group policy with your current public IP to allow access only your laptop
 
 ## Lambda function setup
-(needs better documentation)
-- Create a new AWS lambda function with the file stopAwsInstances_lambda.py via the AWS console 
-- Use the file lambda_permissions_policy.json to define the permissions
+- Follow [this guide](https://aws.amazon.com/premiumsupport/knowledge-center/start-stop-lambda-eventbridge/) from AWS to create an IAM Policy, lambda function, and EventBridge rule. 
+- Replace the example python code for the lambda function with the code in `stopAwsInstances_lambda.py`
 
 ## Local utility setup
 - Setup the AWS CLI either using [this guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) or via homebrew for Mac using `brew install awscli`
