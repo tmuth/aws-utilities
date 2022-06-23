@@ -1,21 +1,27 @@
+"""
+This is a simple CLI menu to view and control AWS EC2 instances
+"""
+
+__author__ = 'Tyler Muth'
+__version__ = '1.0.1'
+__source__ = 'https://github.com/tmuth/aws-utilities'
+
+# User set variables
+region='us-east-1'
+securityGroupName = ['laptop-aws']
+
 # pip3 install python_hosts,boto3, simple_term_menu
 from python_hosts import Hosts, HostsEntry
 from collections import defaultdict
 from simple_term_menu import TerminalMenu
 import boto3
-import pprint
+#import pprint
 import time
 import os
 import signal
 import sys
 import urllib.request
 from botocore.exceptions import ClientError
-
-
-
-# User set variables
-region='us-east-1'
-securityGroupName = ['laptop-aws']
 
 
 # Global variables
@@ -196,7 +202,11 @@ def instanceMenu():
     #options = ["entry 1", "entry 2", "entry 3"]
     #terminal_menu = TerminalMenu(options)
     listInstances()
-    terminal_menu = TerminalMenu(instanceList)
+
+    instance_menu_title = "  Choose an instance to stop or start\n"
+    terminal_menu = TerminalMenu(
+        menu_entries=instanceList,
+        title=instance_menu_title)
     menu_entry_index = terminal_menu.show()
     #print(f"You have selected\n {instanceList[menu_entry_index]}!")
     selectedItem = instanceList[menu_entry_index]
@@ -212,7 +222,8 @@ def mainMenu():
     menu_options = ["[v] view EC2 instances", "[s] start / stop EC2 instances",
                     "[u] update security group with my IP",
                     "[h] update /etc/hosts with AWS public IPs of running instances (sudo)",
-                    "[t] test instance", "[x] exit"]
+                    #"[t] test instance",
+                    "[x] exit"]
     main_menu_title = "  AWS Main Menu\n"
     main_menu_exit = False
 
@@ -241,9 +252,9 @@ def mainMenu():
         elif menu_options[main_sel] == "[h] update /etc/hosts with AWS public IPs of running instances (sudo)":
             pathname = os.path.dirname(sys.argv[0]) 
             os.system('sudo python3 '+pathname+'/update-hosts.py')
-        elif menu_options[main_sel] == "test instance":
+        #elif menu_options[main_sel] == "test instance":
             #listInstances(instance_id="i-0816b3092db695b9f")
-            loopInstanceUntilState(instance_id="i-0816b3092db695b9f",state="running")
+        #    loopInstanceUntilState(instance_id="i-0816b3092db695b9f",state="running")
         elif menu_options[main_sel] == "[x] exit":
             main_menu_exit = True
             print("Exit Selected")
