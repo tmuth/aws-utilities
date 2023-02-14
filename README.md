@@ -22,7 +22,7 @@ aws ec2 describe-instances --query 'Reservations[*].Instances[*].{ID:InstanceId,
 
 ### Local utility configuration
 1. Install python3 packages via pip3:
-`pip3 install python_hosts,boto3, simple_term_menu`
+`pip3 install python-hosts,boto3, simple_term_menu`
 2. Download `aws-menu.py` and `update-hosts.py` into a scripts directory in your home directory. 
 3. The "Update /etc/hosts" functionality uses sudo to run update-hosts.py. To enable this command without requiring a password each time, run the following from a terminal to create a new file called aws-menu in `/private/etc/sudoers.d` and add an entry to it to allow the script to run using sudo:
 `sudo visudo /private/etc/sudoers.d/aws-menu`
