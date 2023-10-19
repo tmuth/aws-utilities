@@ -3,7 +3,7 @@ This is a simple CLI menu to view and control AWS EC2 instances
 """
 
 __author__ = 'Tyler Muth'
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 __source__ = 'https://github.com/tmuth/aws-utilities'
 
 # User set variables
