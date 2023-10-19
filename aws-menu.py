@@ -250,8 +250,9 @@ def mainMenu():
         elif menu_options[main_sel] == "[u] update security group with my IP":
             updateSecurityGroup(sgName=securityGroupName)
         elif menu_options[main_sel] == "[h] update /etc/hosts with AWS public IPs of running instances (sudo)":
-            pathname = os.path.dirname(sys.argv[0]) 
-            os.system('sudo python3 '+pathname+'/update-hosts.py')
+            pathname = os.path.dirname(__file__)
+            fullpath=os.path.join(pathname,'update-hosts.py')
+            os.system('sudo python3 '+fullpath)
         #elif menu_options[main_sel] == "test instance":
             #listInstances(instance_id="i-0816b3092db695b9f")
         #    loopInstanceUntilState(instance_id="i-0816b3092db695b9f",state="running")
